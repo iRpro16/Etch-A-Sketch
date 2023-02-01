@@ -1,3 +1,4 @@
+/* Page design. */
 body {
     background: #28282b;
     display: flex;
@@ -18,14 +19,20 @@ body {
     justify-content: space-around;
 }
 
+/* Grid Creation. */
+:root {
+    --grid-row: 1;
+    --grid-column: 1;
+}
+
 .grid-container {
     height: 500px;
     width: 500px;
     background-color: lightgray;
     display: grid;
     grid-gap: 1px;
-    grid-template-rows: repeat(16, minmax(3px, auto));
-    grid-template-columns: repeat(16, minmax(3px, auto));
+    grid-template-rows: repeat(var(--grid-row), minmax(3px, auto));
+    grid-template-columns: repeat(var(--grid-column), minmax(3px, auto));
 }
 
 .grid-item {
