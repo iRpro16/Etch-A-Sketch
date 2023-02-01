@@ -1,0 +1,33 @@
+body {
+    background: #28282b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.options {
+    height: 600px;
+    width: 200px;
+    background: white;
+}
+
+.mid-page {
+    display: flex;
+    width: 1000px;
+    height: 600px;
+    justify-content: space-around;
+}
+
+.grid-container {
+    height: 500px;
+    width: 500px;
+    background-color: lightgray;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-rows: repeat(16, minmax(3px, auto));
+    grid-template-columns: repeat(16, minmax(3px, auto));
+}
+
+.grid-item {
+    background: white ;
+}
