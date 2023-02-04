@@ -1,9 +1,20 @@
 // UI:
 const gridCont = document.querySelector('.grid-container');
 const button = document.querySelector('.grid-changer');
+const colorIndicator = document.querySelector('.color-indicator');
+const erase = document.querySelector('.erase-all');
 
-// Button to prompt:
+
+// Start grid:
+createGrid(16);
+
+let mousedown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
+// Button to prompt and get function:
 button.addEventListener('click', changeGrid);
+
 
 // Change grid:
 function changeGrid() {
@@ -23,14 +34,31 @@ function createGrid(num) {
     for (i = 0; i < num*num; i++) {
         const gridItem = document.createElement('div');
         gridItem.classList.add('grid-item');
+        gridItem.addEventListener('mouseup', changeColor);
+        gridItem.addEventListener('mousedown', changeColor);
         gridCont.appendChild(gridItem);
     };
 };
 
+// Change color:
+function changeColor(e) {
+    const color = document.getElementById('color_value').value;
+    if (e.type === 'mouseover' && !mousedown) return
+    e.target.style.backgroundColor = color;
+    colorIndicator.style.backgroundColor = color;
+    erase.addEventListener('click', () => {
+        e.target.style.backgroundColor = 'white';
+    });
+    
+}
+
 // Clears grid:
 function clearGrid() {
     while (gridCont.firstChild) gridCont.removeChild(gridCont.firstChild);
-}
+};
+
+
+
 
 
 
