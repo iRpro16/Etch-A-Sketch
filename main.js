@@ -8,7 +8,7 @@ const erase = document.querySelector('.erase-all');
 // Start grid:
 createGrid(16);
 
-let mousedown = false
+let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
@@ -34,16 +34,17 @@ function createGrid(num) {
     for (i = 0; i < num*num; i++) {
         const gridItem = document.createElement('div');
         gridItem.classList.add('grid-item');
-        gridItem.addEventListener('mouseup', changeColor);
+        gridItem.addEventListener('mouseover', changeColor);
         gridItem.addEventListener('mousedown', changeColor);
         gridCont.appendChild(gridItem);
     };
 };
 
+
 // Change color:
 function changeColor(e) {
     const color = document.getElementById('color_value').value;
-    if (e.type === 'mouseover' && !mousedown) return
+    if (e.type === 'mouseover' && !mouseDown) return
     e.target.style.backgroundColor = color;
     colorIndicator.style.backgroundColor = color;
     erase.addEventListener('click', () => {
