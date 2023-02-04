@@ -23,6 +23,7 @@ function changeGrid() {
     if (num >= 16 && num <= 64) {
         createGrid(num);
     } else {
+        createGrid(16);
         alert('Sorry, that is not a valid number!');
     }
 };
